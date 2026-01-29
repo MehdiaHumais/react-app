@@ -131,12 +131,12 @@ const BuildingList = () => {
               onChange={(e) => setTechnologyFilter(e.target.value)}
               className="w-full bg-surface text-white rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
             >
-<<<<<<< HEAD
+
               <option value="" className="bg-dark">All Technologies</option>
               {allTechnologies.map((tech, index) => (
                 <option key={index} value={tech} className="bg-dark">{tech}</option>
               ))}
-=======
+
               <option value="">All Technologies</option>
               <option value="Huawei">Huawei</option>
               <option value="Nokia">Nokia</option>
@@ -144,7 +144,7 @@ const BuildingList = () => {
               <option value="U2000">U2000</option>
               <option value="Positron">Positron</option>
               <option value="Other">Other</option>
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
+
             </select>
             <select
               value={complexityFilter}
@@ -187,3 +187,4 @@ const BuildingList = () => {
 };
 
 export default BuildingList;
+
