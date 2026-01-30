@@ -139,11 +139,11 @@ const BuildingDetailPage = () => {
         setShowRiserSelection(false);
       }
     } else {
-<<<<<<< HEAD
+
       setRiserInfo({ onCurrentFloor: [], above: [], below: [] });
-=======
+
       setRiserInfo({ onCurrentFloor: [], above: null, below: null });
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
+
       setRisersOnFloor([]);
       setSelectedRiser(null);
       setShowRiserSelection(false);
@@ -630,3 +630,4 @@ const BuildingDetailPage = () => {
 
 
 export default BuildingDetailPage;
+
