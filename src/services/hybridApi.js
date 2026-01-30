@@ -486,7 +486,6 @@ export const findNearestRisers = (building, currentFloor) => {
       };
     });
 
-<<<<<<< HEAD
     // Determine directional classification for risers
     const classifyRiserDirection = (riserName) => {
       const name = riserName.toLowerCase();
@@ -512,19 +511,11 @@ export const findNearestRisers = (building, currentFloor) => {
 
     // Find risers above the current floor, grouped by direction
     const aboveRisers = risersWithDirections
-=======
-    // Find risers on the current floor
-    const onCurrentFloor = risersWithFloors.filter(r => r.isOnCurrentFloor);
-
-    // Find risers above the current floor
-    const above = risersWithFloors
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
       .filter(r => r.minFloor > currentFloor)
       .map(r => ({
         ...r,
         distance: r.minFloor - currentFloor
       }))
-<<<<<<< HEAD
       .sort((a, b) => a.distance - b.distance);
 
     // Group above risers by direction and get the closest one in each direction
@@ -539,18 +530,11 @@ export const findNearestRisers = (building, currentFloor) => {
 
     // Find risers below the current floor, grouped by direction
     const belowRisers = risersWithDirections
-=======
-      .sort((a, b) => a.distance - b.distance)[0] || null;
-
-    // Find risers below the current floor
-    const below = risersWithFloors
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
       .filter(r => r.maxFloor < currentFloor)
       .map(r => ({
         ...r,
         distance: currentFloor - r.maxFloor
       }))
-<<<<<<< HEAD
       .sort((a, b) => a.distance - b.distance);
 
     // Group below risers by direction and get the closest one in each direction
@@ -563,10 +547,6 @@ export const findNearestRisers = (building, currentFloor) => {
     });
     const below = Object.values(belowByDirection);
 
-=======
-      .sort((a, b) => a.distance - b.distance)[0] || null;
-
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
     return { onCurrentFloor, above, below };
   }
 };
