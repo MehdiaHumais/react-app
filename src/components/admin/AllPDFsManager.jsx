@@ -15,7 +15,6 @@ const AllPDFsManager = () => {
   const [pdfToAttach, setPdfToAttach] = useState(null);
   const [pdfBuildingsToLink, setPdfBuildingsToLink] = useState([]);
 
-<<<<<<< HEAD
   // Get unique technologies from buildings for the dropdown
   const allTechnologies = [...new Set([
     'Huawei', 'Nokia', 'SmartOLT', 'U2000', 'Positron', // Default technologies
@@ -24,8 +23,6 @@ const AllPDFsManager = () => {
     ]).filter(Boolean)
   ])];
 
-=======
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
   useEffect(() => {
     const fetchBuildings = async () => {
       const data = await getBuildings();
@@ -324,7 +321,6 @@ const AllPDFsManager = () => {
     <div className="space-y-6">
       <h2 className="text-2xl font-bold">All PDFs Management</h2>
 
-<<<<<<< HEAD
       {/* Upload PDF Form */}
       <Card className="mockup-card">
         <h3 className="mockup-card-header">Upload New PDF</h3>
@@ -430,8 +426,6 @@ const AllPDFsManager = () => {
         </div>
       </Card>
 
-=======
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
       {/* All PDFs List */}
       <div>
         <h3 className="text-xl font-bold mb-2">All PDFs</h3>
