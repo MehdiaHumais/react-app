@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { getBuildings, createBuilding, updateBuilding, deleteBuilding, addPdfToBuilding, removePdfFromBuilding, addFloorToBuilding, removeFloorFromBuilding, addRiserToBuilding, removeRiserFromBuilding, addImageToBuilding, removeImageFromBuilding, updatePdfLinks, updateImageLinks } from '../services/api';
+import { getBuildings, createBuilding, updateBuilding, deleteBuilding, addPdfToBuilding, removePdfFromBuilding, addFloorToBuilding, removeFloorFromBuilding, addRiserToBuilding, removeRiserFromBuilding, addImageToBuilding, removeImageFromBuilding } from '../services/api';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import BottomNav from '../components/ui/BottomNav';
 import BackButton from '../components/ui/BackButton';
 
-import AllPDFsManager from '../components/Admin/AllPDFsManager';
+// ✅ FIXED: Changed "Admin" to "admin" (lowercase) to match the likely folder name
+import AllPDFsManager from '../components/admin/AllPDFsManager';
 
 const ManageBuilding = () => {
   const { user } = useAuth();
