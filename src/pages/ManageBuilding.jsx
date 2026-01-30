@@ -6,22 +6,15 @@ import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import BottomNav from '../components/ui/BottomNav';
 import BackButton from '../components/ui/BackButton';
-<<<<<<< HEAD
+
 import AllPDFsManager from '../components/Admin/AllPDFsManager';
-=======
-import AllPDFsManager from "../components/admin/AllPDFsManager";
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
 
 const ManageBuilding = () => {
   const { user } = useAuth();
   const [buildings, setBuildings] = useState([]);
   const [editingBuilding, setEditingBuilding] = useState(null);
   const [newBuilding, setNewBuilding] = useState({
-<<<<<<< HEAD
     name: '', address: '', technology: 'Huawei', customTechnology: '', complexityPercentage: 0, requiredTechnicians: 1, parkingType: 'Underground', parkingInstructions: '', direction: 'N/A'
-=======
-    name: '', address: '', technology: 'Huawei', complexityPercentage: 0, requiredTechnicians: 1, parkingType: 'Underground', parkingInstructions: '', direction: 'N/A'
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -232,10 +225,7 @@ const ManageBuilding = () => {
     setEditingBuilding({
       ...building,
       technology: building.technology || building.technologySummary || 'Huawei',
-<<<<<<< HEAD
       customTechnology: building.customTechnology || '',
-=======
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
       direction: building.direction || 'N/A'
     });
   };
@@ -773,7 +763,6 @@ const ManageBuilding = () => {
               <form onSubmit={handleCreateBuilding}>
                 <Input label="Name" value={newBuilding.name} onChange={(e) => handleChangeBuilding(e, 'name')} required />
                 <Input label="Address" value={newBuilding.address} onChange={(e) => handleChangeBuilding(e, 'address')} />
-<<<<<<< HEAD
                 <select value={newBuilding.technology} onChange={(e) => {
                   handleChangeBuilding(e, 'technology');
                   if (e.target.value !== 'Other') {
@@ -793,16 +782,6 @@ const ManageBuilding = () => {
                     placeholder="Enter custom technology name"
                   />
                 )}
-=======
-                <select value={newBuilding.technology} onChange={(e) => handleChangeBuilding(e, 'technology')} className="input-mockup mb-2 w-full">
-                  <option value="Huawei">Huawei</option>
-                  <option value="Nokia">Nokia</option>
-                  <option value="SmartOLT">SmartOLT</option>
-                  <option value="U2000">U2000</option>
-                  <option value="Positron">Positron</option>
-                  <option value="Other">Other</option>
-                </select>
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
                 <Input label="Complexity %" type="number" value={newBuilding.complexityPercentage} onChange={(e) => handleChangeBuilding(e, 'complexityPercentage')} />
                 <Input label="Required Techs" type="number" value={newBuilding.requiredTechnicians} onChange={(e) => handleChangeBuilding(e, 'requiredTechnicians')} />
                 <select value={newBuilding.parkingType} onChange={(e) => handleChangeBuilding(e, 'parkingType')} className="input-mockup mb-2">
@@ -837,7 +816,6 @@ const ManageBuilding = () => {
                 <form onSubmit={handleUpdateBuilding}>
                   <Input label="Name" value={editingBuilding.name} onChange={(e) => handleChangeBuilding(e, 'name', true)} required />
                   <Input label="Address" value={editingBuilding.address} onChange={(e) => handleChangeBuilding(e, 'address', true)} />
-<<<<<<< HEAD
                   <select value={editingBuilding.technology} onChange={(e) => {
                     handleChangeBuilding(e, 'technology', true);
                     if (e.target.value !== 'Other') {
@@ -857,16 +835,6 @@ const ManageBuilding = () => {
                       placeholder="Enter custom technology name"
                     />
                   )}
-=======
-                  <select value={editingBuilding.technology} onChange={(e) => handleChangeBuilding(e, 'technology', true)} className="input-mockup mb-2 w-full">
-                    <option value="Huawei">Huawei</option>
-                    <option value="Nokia">Nokia</option>
-                    <option value="SmartOLT">SmartOLT</option>
-                    <option value="U2000">U2000</option>
-                    <option value="Positron">Positron</option>
-                    <option value="Other">Other</option>
-                  </select>
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
                   <Input label="Complexity %" type="number" value={editingBuilding.complexityPercentage} onChange={(e) => handleChangeBuilding(e, 'complexityPercentage', true)} />
                   <Input label="Required Techs" type="number" value={editingBuilding.requiredTechnicians} onChange={(e) => handleChangeBuilding(e, 'requiredTechnicians', true)} />
                   <select value={editingBuilding.parkingType} onChange={(e) => handleChangeBuilding(e, 'parkingType', true)} className="input-mockup mb-2">
@@ -960,11 +928,7 @@ const ManageBuilding = () => {
                 {selectedBuildingId && (
                   <>
                     <Card className="mockup-card mb-4">
-<<<<<<< HEAD
                       <h3 className="mockup-card-header">Add PDF to {buildings.find(b => b.id === parseInt(selectedBuildingId))?.name}</h3>
-=======
-                      <h3 className="mockup-card-header">Add PDF to {buildings.find(b => b.id === selectedBuildingId)?.name}</h3>
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
 
                       {/* File upload section */}
                       <div className="mb-2">
@@ -977,7 +941,6 @@ const ManageBuilding = () => {
                         />
                       </div>
 
-<<<<<<< HEAD
                       <Input label="PDF Title" value={newPdf.title} onChange={(e) => setNewPdf({ ...newPdf, title: e.target.value })} />
                       <select
                         value={newPdf.tech}
@@ -990,22 +953,6 @@ const ManageBuilding = () => {
                         <option value="Other">Other</option>
                       </select>
                       <Input label="PDF URL" value={newPdf.url} onChange={(e) => setNewPdf({ ...newPdf, url: e.target.value })} placeholder="https://example.com/document.pdf" />
-=======
-                      <Input label="PDF Title" value={newPdf.title} onChange={(e) => setNewPdf({...newPdf, title: e.target.value})} />
-                      <select
-                        value={newPdf.tech}
-                        onChange={(e) => setNewPdf({...newPdf, tech: e.target.value})}
-                        className="input-mockup mb-2"
-                      >
-                        <option value="Huawei">Huawei</option>
-                        <option value="Nokia">Nokia</option>
-                        <option value="SmartOLT">SmartOLT</option>
-                        <option value="U2000">U2000</option>
-                        <option value="Positron">Positron</option>
-                        <option value="Other">Other</option>
-                      </select>
-                      <Input label="PDF URL" value={newPdf.url} onChange={(e) => setNewPdf({...newPdf, url: e.target.value})} placeholder="https://example.com/document.pdf" />
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
 
                       {/* Building linking options */}
                       <div className="mb-3">
@@ -1028,11 +975,7 @@ const ManageBuilding = () => {
 
                             <div className="max-h-40 overflow-y-auto">
                               {buildings
-<<<<<<< HEAD
                                 .filter(b => b.id !== parseInt(selectedBuildingId)) // Exclude the current building
-=======
-                                .filter(b => b.id !== selectedBuildingId) // Exclude the current building
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
                                 .map(building => (
                                   <div key={building.id} className="flex items-center mb-1">
                                     <input
