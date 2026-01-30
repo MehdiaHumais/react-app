@@ -16,7 +16,6 @@
     "@mui/icons-material": "^7.3.5",
     "@mui/material": "^7.3.5",
     "@supabase/supabase-js": "^2.87.1",
-    "@tailwindcss/vite": "^4.1.17",
     "axios": "^1.13.2",
     "expo": "^54.0.27",
     "react": "^19.2.0",
@@ -42,3 +41,4 @@
     "vite": "^6.0.0"
   }
 }
+
