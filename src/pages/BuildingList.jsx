@@ -18,7 +18,7 @@ const BuildingList = () => {
 
   // Get unique technologies from buildings for the dropdown
   const allTechnologies = [...new Set([
-    'Huawei', 'Nokia', 'SmartOLT', 'U2000', 'Positron', // Default technologies
+    'Huawei', 'Nokia', 'SmartOLT', 'U2000', 'Positron', 'Other', // Default technologies
     ...buildings.flatMap(building => [
       building.technology || building.technologySummary
     ]).filter(Boolean)
@@ -131,21 +131,12 @@ const BuildingList = () => {
               onChange={(e) => setTechnologyFilter(e.target.value)}
               className="w-full bg-surface text-white rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary"
             >
-
               <option value="" className="bg-dark">All Technologies</option>
               {allTechnologies.map((tech, index) => (
                 <option key={index} value={tech} className="bg-dark">{tech}</option>
               ))}
-
-              <option value="">All Technologies</option>
-              <option value="Huawei">Huawei</option>
-              <option value="Nokia">Nokia</option>
-              <option value="SmartOLT">SmartOLT</option>
-              <option value="U2000">U2000</option>
-              <option value="Positron">Positron</option>
-              <option value="Other">Other</option>
-
             </select>
+            
             <select
               value={complexityFilter}
               onChange={(e) => setComplexityFilter(e.target.value)}
@@ -187,4 +178,3 @@ const BuildingList = () => {
 };
 
 export default BuildingList;
-
