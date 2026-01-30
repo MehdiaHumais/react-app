@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { getBuildings, addFloorToBuilding, removeFloorFromBuilding, addRiserToBuilding, removeRiserFromBuilding } from '../services/api'; // Fetch buildings to link floors/risers
+import { getBuildings, addRiserToBuilding, removeRiserFromBuilding } from '../services/api'; // Removed unused floor imports
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
@@ -29,7 +29,7 @@ const ManageFloorsRisers = () => {
 
   useEffect(() => {
     if (selectedBuildingId) {
-      const building = buildings.find(b => b.id === selectedBuildingId);
+      const building = buildings.find(b => b.id === parseInt(selectedBuildingId));
       if (building) {
         setRisers(building.risers || []); // Only load risers, not floors
       }
@@ -43,15 +43,11 @@ const ManageFloorsRisers = () => {
   }
 
   const handleAddRiser = async () => {
-<<<<<<< HEAD
     if (!selectedBuildingId || !newRiser.direction || !newRiser.floorsCovered) return;
 
     // Construct the riser number from name and direction
     const riserNumber = newRiser.name ? `${newRiser.name} ${newRiser.direction}` : `${newRiser.direction} Riser`;
 
-=======
-    if (!selectedBuildingId || !newRiser.number) return;
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
     try {
       const newRiserObj = {
         number: riserNumber,
@@ -62,7 +58,7 @@ const ManageFloorsRisers = () => {
       await addRiserToBuilding(selectedBuildingId, newRiserObj);
       const updatedBuildings = await getBuildings();
       setBuildings(updatedBuildings);
-      const updatedBuilding = updatedBuildings.find(b => b.id === selectedBuildingId);
+      const updatedBuilding = updatedBuildings.find(b => b.id === parseInt(selectedBuildingId));
       if (updatedBuilding) {
         setRisers(updatedBuilding.risers || []);
       }
@@ -72,30 +68,12 @@ const ManageFloorsRisers = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
-  const handleDeleteFloor = async (floorId) => {
-    try {
-      await removeFloorFromBuilding(selectedBuildingId, floorId);
-
-      const updatedBuildings = await getBuildings();
-      setBuildings(updatedBuildings);
-      const updatedBuilding = updatedBuildings.find(b => b.id === selectedBuildingId);
-      if (updatedBuilding) {
-        setFloors(updatedBuilding.floors || []);
-      }
-    } catch (err) {
-      console.error("Error deleting floor:", err);
-    }
-  };
-
->>>>>>> 34f923383f5769e2bea43f33fb2d3ba8e01a36ac
   const handleDeleteRiser = async (riserId) => {
     try {
       await removeRiserFromBuilding(selectedBuildingId, riserId);
       const updatedBuildings = await getBuildings();
       setBuildings(updatedBuildings);
-      const updatedBuilding = updatedBuildings.find(b => b.id === selectedBuildingId);
+      const updatedBuilding = updatedBuildings.find(b => b.id === parseInt(selectedBuildingId));
       if (updatedBuilding) {
         setRisers(updatedBuilding.risers || []);
       }
@@ -124,7 +102,7 @@ const ManageFloorsRisers = () => {
           <>
             {/* Riser Management Section */}
             <Card className="mockup-card mb-4">
-              <h3 className="mockup-card-header">Add Riser to {buildings.find(b => b.id === selectedBuildingId)?.name}</h3>
+              <h3 className="mockup-card-header">Add Riser to {buildings.find(b => b.id === parseInt(selectedBuildingId))?.name}</h3>
               <p className="text-sm text-gray-400 mb-2">Note: Multiple risers can serve the same floor (e.g., East/West, North/South, A/B).</p>
               <p className="text-sm text-gray-400 mb-2">Most buildings have multiple risers (e.g., East & West, North & South).</p>
               <Input
