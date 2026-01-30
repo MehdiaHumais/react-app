@@ -6,7 +6,6 @@ import BottomNav from '../components/ui/BottomNav';
 import BackButton from '../components/ui/BackButton';
 import Button from '../components/ui/Button';
 import FloorSelector from '../components/building/FloorSelector';
-import NearestRiserDisplay from '../components/Building/NearestRiserDisplay';
 
 const BuildingDetailPage = () => {
   const { id } = useParams();
@@ -533,14 +532,6 @@ const BuildingDetailPage = () => {
             </div>
           )}
 
-          <div>
-            <NearestRiserDisplay
-              riserInfo={riserInfo}
-              selectedRiser={selectedRiser}
-              onRiserChange={() => setShowRiserSelection(true)}
-            />
-          </div>
-
           {/* Display risers that are on the selected floor */}
           {selectedFloor !== null && risersOnFloor.length > 0 && (
             <div className="mt-4">
@@ -628,6 +619,4 @@ const BuildingDetailPage = () => {
   );
 };
 
-
 export default BuildingDetailPage;
-
